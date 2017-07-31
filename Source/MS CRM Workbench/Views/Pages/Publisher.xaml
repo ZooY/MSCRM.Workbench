@@ -1,0 +1,45 @@
+﻿<Page x:Class="PZone.Views.Pages.Publisher"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:PZone.ViewModels.Pages"
+      xmlns:uc="clr-namespace:PZone.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="880"
+      Title="Publisher">
+    <Page.DataContext>
+        <vm:Publisher />
+    </Page.DataContext>
+    <Page.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}"/>
+    </Page.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button Height="22" Click="OpenBuildJsWindow">Build JS</Button>
+                <Button Height="22" Click="OpenWebResourcesWindow">Web Resources</Button>
+                <Separator></Separator>
+                <Button Height="22" Click="OpenWorkflowLogAnalizerWindow">WF Log</Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <ItemsControl ItemsSource="{Binding WebResources}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <uc:WebResourceSelector SelectedItem="{Binding}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Content="Add" Command="{Binding AddWebResource}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
