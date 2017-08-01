@@ -33,5 +33,12 @@ namespace PZone.Configuration
             get { return (string)base["sqlhost"]; }
             set { base["sqlhost"] = value; }
         }
+
+        [ConfigurationProperty("project", DefaultValue = "", IsKey = false, IsRequired = true)]
+        public string ProjectPath
+        {
+            get { return (string)base["project"]; }
+            set { base["project"] = value; }
+        }
     }
 }

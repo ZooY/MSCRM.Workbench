@@ -21,6 +21,8 @@ namespace PZone
 
         public static SqlConnection Db => _db.Value;
 
+        public static string ProjectPath { get; private set; }
+
 
         static App()
         {
@@ -38,6 +40,8 @@ namespace PZone
                 con.Open();
                 return con;
             });
+
+            ProjectPath = connection.ProjectPath;
         }
     }
 }

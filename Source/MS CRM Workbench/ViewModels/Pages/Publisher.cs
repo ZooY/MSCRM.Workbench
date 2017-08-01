@@ -17,7 +17,7 @@ namespace PZone.ViewModels.Pages
         private ICommand _addWebResourceCommand;
         private static readonly FileSystemWatcher _watcher = new FileSystemWatcher
         {
-            Path = @"C:\Projects\CRM\CRM\Source",
+            Path = App.ProjectPath,
             IncludeSubdirectories = true,
             EnableRaisingEvents = true
         };
