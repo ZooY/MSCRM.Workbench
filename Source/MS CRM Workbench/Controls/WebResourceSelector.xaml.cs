@@ -4,11 +4,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Microsoft.Xrm.Sdk;
+using Microsoft.Win32;
 using Microsoft.Xrm.Sdk.Query;
 using PZone.Models;
 using PZone.ViewModels;
-using WebResource = PZone.Models.WebResource;
 
 
 namespace PZone.Controls
@@ -71,9 +70,9 @@ namespace PZone.Controls
             var selectedItem = ((TreeView)sender).SelectedItem;
             if(selectedItem == null || selectedItem is WebResourceFolder)
                 return;
-            var trvItem = (WebResource)selectedItem;
-            ValueField.Text = trvItem.Name;
-            SelectedItem = trvItem;
+            var webResource = (WebResource)selectedItem;
+            webResource.FilePath = SelectedItem.FilePath;
+            SelectedItem = webResource;
             PopupControl.IsOpen = false;
         }
 
@@ -115,6 +114,18 @@ namespace PZone.Controls
                 return;
             clickedItem.Focusable = false;
             e.Handled = true;
+        }
+
+
+        private void OpenFileSelection(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "HTML (*.htm, *.html)|*.htm;*.html|CSS (*.css)|*.css|Scripts (*.js)|*.js|XML (*.xml)|*.xml|Images (*.png, *.jpg, *.gif)|*.png;*.jpg;*.gif|Icons (*.ico)|*.ico|Silverlight (*.xap)|*.xap|XML StyleSheets (*.xsl, *.xslt)|*.xsl;*.xslt",
+                InitialDirectory = App.ProjectSettings.ProjectPath
+            };
+            if (dialog.ShowDialog() == true)
+                SelectedItem.FilePath = dialog.FileName;
         }
     }
 }

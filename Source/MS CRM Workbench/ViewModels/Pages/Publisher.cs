@@ -17,7 +17,7 @@ namespace PZone.ViewModels.Pages
         private ICommand _addWebResourceCommand;
         private static readonly FileSystemWatcher _watcher = new FileSystemWatcher
         {
-            Path = App.ProjectPath,
+            Path = App.ProjectSettings.ProjectPath,
             IncludeSubdirectories = true,
             EnableRaisingEvents = true
         };

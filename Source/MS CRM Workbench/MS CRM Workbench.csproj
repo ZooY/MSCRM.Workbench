@@ -48,8 +48,17 @@
       <HintPath>packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0.2\lib\net452\Microsoft.Xrm.Sdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PZone.Core">
-      <HintPath>..\..\..\DOT.NET Dev\PZone SDK\Source\PZone.Core\obj\Debug\PZone.Core.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PZone.Core, Version=1.0.6.0, Culture=neutral, PublicKeyToken=e92de928f327206a, processorArchitecture=MSIL">
+      <HintPath>packages\PZone.SDK.Core.1.0.6\lib\net40\PZone.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PZone.SDK.Xrm, Version=8.0.2.0, Culture=neutral, PublicKeyToken=4394d41fdc99a9c8, processorArchitecture=MSIL">
+      <HintPath>packages\PZone.SDK.XRM.8.0.2.0\lib\net452\PZone.SDK.Xrm.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PZone.Wpf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -119,6 +128,12 @@
     <Compile Include="Views\Pages\CrmConnection.xaml.cs">
       <DependentUpon>CrmConnection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\Actions.xaml.cs">
+      <DependentUpon>Actions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\UserPrivileges.xaml.cs">
+      <DependentUpon>UserPrivileges.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WebResourcesWindow.xaml.cs">
       <DependentUpon>WebResourcesWindow.xaml</DependentUpon>
     </Compile>
@@ -161,6 +176,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\CrmConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Actions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\UserPrivileges.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,7 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Controls\" />
-    <Folder Include="Views\Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="progress.gif" />

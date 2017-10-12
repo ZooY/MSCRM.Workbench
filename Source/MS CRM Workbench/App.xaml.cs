@@ -20,28 +20,26 @@ namespace PZone
         public static IOrganizationService Service { get; set; }
 
         public static SqlConnection Db => _db.Value;
-
-        public static string ProjectPath { get; private set; }
+        
+        public static ConnectionElement ProjectSettings { get; }
 
 
         static App()
         {
             var section = (StartupCrmSettingsSection)ConfigurationManager.GetSection("crmSettings");
-            var connection = section.Connections[0];
-            var serviceUrl = $"http://{connection.Host}/{connection.OrgName}/XRMServices/2011/Organization.svc";
+            ProjectSettings = section.Connections[0];
+            var serviceUrl = $"http://{ProjectSettings.Host}/{ProjectSettings.OrgName}/XRMServices/2011/Organization.svc";
             var credentials = new ClientCredentials();
             credentials.Windows.ClientCredential = CredentialCache.DefaultNetworkCredentials;
             Service = new OrganizationServiceProxy(new Uri(serviceUrl), null, credentials, null);
 
-            _connectionString = $"Data Source={connection.SqlHost};Initial Catalog={connection.OrgName}_MSCRM;Integrated Security=True;Connect Timeout=60";
+            _connectionString = $"Data Source={ProjectSettings.SqlHost};Initial Catalog={ProjectSettings.OrgName}_MSCRM;Integrated Security=True;Connect Timeout=60";
             _db = new Lazy<SqlConnection>(() =>
             {
                 var con = new SqlConnection(_connectionString);
                 con.Open();
                 return con;
             });
-
-            ProjectPath = connection.ProjectPath;
         }
     }
 }

@@ -4,95 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:PZone.ViewModels.Windows"
-        Content="{Binding Page}"
         mc:Ignorable="d"
         Title="Microsoft Dymanics CRM Workbench" Height="400" Width="750">
     <Window.DataContext>
         <vm:Main />
     </Window.DataContext>
-    <!--<Grid>
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
         </Grid.RowDefinitions>
-        <ToolBarTray Grid.Row="0">
+      <ToolBarTray Grid.Row="0">
+          <ToolBarTray.Resources>
+              <Style TargetType="Button">
+                  <Setter Property="Height" Value="22" />
+              </Style>
+          </ToolBarTray.Resources>
             <ToolBar>
-                <Button Height="22" Click="OpenBuildJsWindow">Build JS</Button>
+                <Button Click="OpenUserPrivileges">User Privileges</Button>
+                <Button Click="OpenActions">Actions</Button>
+                 <!-- <Button Height="22" Click="OpenBuildJsWindow">Build JS</Button>
                 <Button Height="22" Click="OpenWebResourcesWindow">Web Resources</Button>
                 <Separator></Separator>
-                <Button Height="22" Click="OpenWorkflowLogAnalizerWindow">WF Log</Button>
+                <Button Height="22" Click="OpenWorkflowLogAnalizerWindow">WF Log</Button>-->
             </ToolBar>
         </ToolBarTray>
-    <Grid Grid.Row="1" Margin="5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="27"/>
-            <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <TextBox x:Name="File1" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\common.min.js" />
-        <TextBox x:Name="Resource1" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/common.js" />
-        <Button x:Name="Publish1" Content="Publish" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish1_Click" />
-
-            <TextBox x:Name="File2" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\data.min.js" />
-            <TextBox x:Name="Resource2" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/data.js" />
-        <Button x:Name="Publish2" Content="Publish" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish2_Click" />
-
-        <TextBox x:Name="File3" Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\controls.min.js"/>
-        <TextBox x:Name="Resource3" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/controls.js" />
-        <Button x:Name="Publish3" Content="Publish" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish3_Click" />
-
-        <TextBox x:Name="File4" Grid.Row="3" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\controls.min.css" />
-        <TextBox x:Name="Resource4" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/controls.css" />
-        <Button x:Name="Publish4" Content="Publish" Grid.Row="3" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish4_Click" />
-
-            <TextBox x:Name="File5" Grid.Row="4" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\resource.min.css" />
-            <TextBox x:Name="Resource5" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/resource.css" />
-            <Button x:Name="Publish5" Content="Publish" Grid.Row="4" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish5_Click" />
-
-            <TextBox x:Name="File6" Grid.Row="5" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Text="C:\Projects\CRM\CRM\Source\Components\Web\npf_\sdk\input.min.js" />
-            <TextBox x:Name="Resource6" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" Text="npf_/sdk/input.js" />
-            <Button x:Name="Publish6" Content="Publish" Grid.Row="5" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish6_Click" />
-        
-            <TextBox x:Name="File7" Grid.Row="6" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource7" Grid.Row="6" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish7" Content="Publish" Grid.Row="6" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish7_Click" />
-
-            <TextBox x:Name="File8" Grid.Row="7" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource8" Grid.Row="7" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish8" Content="Publish" Grid.Row="7" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish8_Click" />
-
-            <TextBox x:Name="File9" Grid.Row="8" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource9" Grid.Row="8" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish9" Content="Publish" Grid.Row="8" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish9_Click" />
-
-            <TextBox x:Name="File10" Grid.Row="9" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource10" Grid.Row="9" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish10" Content="Publish" Grid.Row="9" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish10_Click" />
-
-            <TextBox x:Name="File11" Grid.Row="10" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource11" Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish11" Content="Publish" Grid.Row="10" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish11_Click" />
-
-            <TextBox x:Name="File12" Grid.Row="11" Grid.Column="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" />
-            <TextBox x:Name="Resource12" Grid.Row="11" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="22" Margin="5,0" />
-            <Button x:Name="Publish12" Content="Publish" Grid.Row="11" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="22" Click="Publish12_Click" />
-        </Grid>
-    </Grid>-->
+        <Frame Grid.Row="1" Content="{Binding Page}" />
+        <Border Grid.Row="2" BorderBrush="#f1f1f1" BorderThickness="0,1,0,0" Background="#f7f7f7" Padding="10,2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Host:" />
+                <TextBlock Text="DEV01" Margin="5,0,0,0"/>
+                <TextBlock Text="/" Margin="5,0"/>
+                <TextBlock Text="Organization:" />
+                <TextBlock Text="DEV01" Margin="5,0,0,0"/>
+                <TextBlock Text="/" Margin="5,0"/>
+                <TextBlock Text="User:"/>
+                <TextBlock Text="rkopaev" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>

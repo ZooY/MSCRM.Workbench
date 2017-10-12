@@ -34,6 +34,11 @@
             <Setter Property="Height" Value="22" />
         </Style>
         
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="22" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        
         <!-- Converters -->
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />

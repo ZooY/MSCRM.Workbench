@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
+using PZone.Views.Pages;
+using PZone.Views.Windows;
 
 
 namespace PZone
@@ -175,7 +177,7 @@ namespace PZone
 //  </entity>
 //</fetch>")).Entities.First().Id;
 //                }
-                
+
 //                App.Service.Update(new Entity("webresource", resourceId) { ["content"] = Convert.ToBase64String(File.ReadAllBytes(filePath)) });
 //                App.Service.Execute(new OrganizationRequest
 //                {
@@ -209,5 +211,15 @@ namespace PZone
 //        {
 //            new WorkflowLogAnalizerWindow().Show();
 //        }
+        private void OpenUserPrivileges(object sender, RoutedEventArgs e)
+        {
+            new UserPrivileges().Show();
+        }
+
+
+        private void OpenActions(object sender, RoutedEventArgs e)
+        {
+            new Actions().Show();
+        }
     }
 }

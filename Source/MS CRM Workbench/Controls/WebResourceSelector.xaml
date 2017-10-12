@@ -7,11 +7,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:m="clr-namespace:PZone.Models"
     xmlns:uc="clr-namespace:PZone.Controls"
-    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
         <m:EnumImageToPathConverter x:Key="EnumImageToPathConverter" />
-            <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBox}" />
+        <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBox}" />
         <Style TargetType="uc:PublishButton" BasedOn="{StaticResource DefaultButton}" />
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}" />
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot" DataContext="{Binding ElementName=UserControl}">
         <Grid.ColumnDefinitions>
@@ -23,11 +24,15 @@
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" Text="{Binding SelectedItem.FilePath}" />
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="22"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Text="{Binding SelectedItem.FilePath}" />
+            <Button Grid.Column="1" Content="..." BorderBrush="{Binding BorderBrush, ElementName=ValueField}" BorderThickness="0,1,1,1" Click="OpenFileSelection" Margin="0" Width="22" />
+        </Grid>
         <Grid Grid.Column="2" x:Name="RecourceControl">
-            <Grid.Resources>
-                <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}" />
-            </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="22"/>
